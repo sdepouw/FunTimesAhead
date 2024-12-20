@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-
 namespace FunTimesAhead.TestsTUnit.BattleCalculatorTests;
 
 // Extras Tutorial -- https://thomhurst.github.io/TUnit/docs/category/tutorial---extras
