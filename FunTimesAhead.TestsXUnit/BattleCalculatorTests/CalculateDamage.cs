@@ -56,4 +56,16 @@ public class CalculateDamage
     calculateCall.Should().ThrowExactly<InvalidCharacterStrengthException>();
     await asyncCalculateCall.Should().ThrowExactlyAsync<InvalidCharacterStrengthException>();
   }
+
+  [Fact]
+  public async Task DoesNotThrowGivenNoCharacterStrength()
+  {
+    const int characterStrength = 0;
+    
+    Action calculateCall = () => _calculator.CalculateDamage(characterStrength, 5);
+    Func<Task> asyncCalculateCall = () => _calculator.CalculateAsync(characterStrength, CancellationToken.None);
+    
+    calculateCall.Should().NotThrow();
+    await asyncCalculateCall.Should().NotThrowAsync();
+  }
 }
