@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTimesAhead", "FunTimesAh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTimesAhead.TestsTUnit", "FunTimesAhead.TestsTUnit\FunTimesAhead.TestsTUnit.csproj", "{0EDDC907-475A-4925-B6AF-006822BF39BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunTimesAhead.TestsXUnit", "FunTimesAhead.TestsXUnit\FunTimesAhead.TestsXUnit.csproj", "{A5D37DC5-0BDF-4DEB-A8D4-7947C4D6C63A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{0EDDC907-475A-4925-B6AF-006822BF39BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EDDC907-475A-4925-B6AF-006822BF39BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EDDC907-475A-4925-B6AF-006822BF39BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5D37DC5-0BDF-4DEB-A8D4-7947C4D6C63A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5D37DC5-0BDF-4DEB-A8D4-7947C4D6C63A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5D37DC5-0BDF-4DEB-A8D4-7947C4D6C63A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5D37DC5-0BDF-4DEB-A8D4-7947C4D6C63A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
