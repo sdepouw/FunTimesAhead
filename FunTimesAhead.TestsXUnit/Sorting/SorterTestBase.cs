@@ -15,7 +15,7 @@ public abstract class SorterTestBase<TSorter> where TSorter : ISorter, new()
 
     IEnumerable<int> sortedValues = _sorter.Sort(values);
 
-    sortedValues.Should().BeEquivalentTo(expectedSortedValues);
+    sortedValues.Should().Equal(expectedSortedValues);
   }
 
   [Fact]
