@@ -1,4 +1,4 @@
-﻿namespace FunTimesAhead.Sorting;
+﻿namespace FunTimesAhead;
 
 public class Swapper : ISwapper
 {
