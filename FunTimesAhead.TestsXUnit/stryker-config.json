@@ -1,0 +1,11 @@
+{
+  "stryker-config": {
+    "ignore-mutations": [
+      "string"
+    ],
+    "mutate": [
+      "**/*",
+      "!**/Program.cs"
+    ]
+  }
+}
