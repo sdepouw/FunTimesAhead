@@ -19,6 +19,17 @@ public abstract class SorterTestBase<TSorter> where TSorter : ISorter, new()
   }
 
   [Fact]
+  public void ReturnsSingleItem()
+  {
+    List<int> values = [42];
+    List<int> expectedSortedValues = [42];
+    
+    IEnumerable<int> sortedValues = _sorter.Sort(values);
+    
+    sortedValues.Should().Equal(expectedSortedValues);
+  }
+
+  [Fact]
   public void ReturnsNothingGivenNothing()
   {
     IEnumerable<int> noValues = [];
