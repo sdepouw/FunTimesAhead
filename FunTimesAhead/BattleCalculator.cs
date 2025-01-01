@@ -1,4 +1,6 @@
-﻿namespace FunTimesAhead;
+﻿using FunTimesAhead.Exceptions;
+
+namespace FunTimesAhead;
 
 public class BattleCalculator : IBattleCalculator
 {

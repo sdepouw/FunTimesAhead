@@ -1,4 +1,5 @@
 using FluentAssertions;
+using FunTimesAhead.Exceptions;
 
 namespace FunTimesAhead.TestsXUnit.BattleCalculatorTests;
 
