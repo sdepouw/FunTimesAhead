@@ -34,4 +34,8 @@
         <ProjectReference Include="..\FunTimesAhead\FunTimesAhead.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="StrykerOutput\**" />
+    </ItemGroup>
+
 </Project>
