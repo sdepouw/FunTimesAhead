@@ -1,6 +1,7 @@
 BenchmarkDotNet.Artifacts
 Logs
 .idea
+cache.db
 
 #################
 ## Eclipse

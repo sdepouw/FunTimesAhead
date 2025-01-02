@@ -7,6 +7,7 @@ using Microsoft.Extensions.Caching.Hybrid;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NeoSmart.Caching.Sqlite;
 
 if (args.Any(arg => arg == "bench"))
 {
@@ -27,7 +28,7 @@ builder.Services.AddHybridCache(options =>
   options.DefaultEntryOptions = new HybridCacheEntryOptions
   {
     LocalCacheExpiration = TimeSpan.FromSeconds(5),
-    Expiration = TimeSpan.FromMinutes(20)
+    Expiration = TimeSpan.FromSeconds(8)
   };
 });
 #pragma warning restore EXTEXP0018
@@ -40,6 +41,10 @@ else if (args.Any(arg => arg == "sql"))
 {
   builder.Services.AddDistributedSqlServerCache(options => options
     .ConnectionString = config.GetConnectionString("SQL"));  
+}
+else if (args.Any(arg => arg == "sqlite"))
+{
+  builder.Services.AddSqliteCache(config.GetConnectionString("SQLite") ?? "");
 }
 
 using IHost host = builder.Build();
