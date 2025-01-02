@@ -14,11 +14,12 @@ if (args.Any(arg => arg == "bench"))
   return 0;
 }
 
-
-
 HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
-builder.Services.AddHostedService<MainService>();
 
+IConfigurationRoot config = new ConfigurationBuilder()
+  .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+  .Build();
+builder.Services.AddHostedService<MainService>();
 builder.Services.AddTransient<IDataAccess, SomeExpensiveDataAccess>();
 #pragma warning disable EXTEXP0018 // Warns that this is an experimental feature
 builder.Services.AddHybridCache(options =>
@@ -33,12 +34,12 @@ builder.Services.AddHybridCache(options =>
 if (args.Any(arg => arg == "redis"))
 {
   builder.Services.AddStackExchangeRedisCache(options => options
-    .Configuration = builder.Configuration.GetConnectionString("Redis"));  
+    .Configuration = config.GetConnectionString("Redis"));  
 }
 else if (args.Any(arg => arg == "sql"))
 {
   builder.Services.AddDistributedSqlServerCache(options => options
-    .ConnectionString = builder.Configuration.GetConnectionString("SQL"));  
+    .ConnectionString = config.GetConnectionString("SQL"));  
 }
 
 using IHost host = builder.Build();
