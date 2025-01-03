@@ -47,6 +47,8 @@ else if (args.Any(arg => arg == "sqlite"))
   builder.Services.AddSqliteCache(config.GetConnectionString("SQLite") ?? "");
 }
 
+builder.Services.AddMemoryCache();
+
 using IHost host = builder.Build();
 await host.RunAsync();
 return 0;
