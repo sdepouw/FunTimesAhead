@@ -1,4 +1,4 @@
-using FluentAssertions;
+using Shouldly;
 using FunTimesAhead.Exceptions;
 
 namespace FunTimesAhead.TestsXUnit.BattleCalculatorTests;
@@ -15,8 +15,7 @@ public class CalculateDamage
     const int weaponStrength = 0;
 
     int damage = _calculator.CalculateDamage(characterStrength, weaponStrength);
-
-    damage.Should().Be(expectedDamage);
+    damage.ShouldBe(expectedDamage);
   }
 
   [Theory]
@@ -29,7 +28,7 @@ public class CalculateDamage
 
     int damage = _calculator.CalculateDamage(characterStrength, weaponStrength);
 
-    damage.Should().Be(expectedDamage);
+    damage.ShouldBe(expectedDamage);
   }
 
   [Theory]
@@ -43,7 +42,7 @@ public class CalculateDamage
 
     int damage = _calculator.CalculateDamage(characterStrength, weaponStrength);
 
-    damage.Should().Be(expectedDamage);
+    damage.ShouldBe(expectedDamage);
   }
 
   [Fact]
@@ -54,8 +53,8 @@ public class CalculateDamage
     Action calculateCall = () => _calculator.CalculateDamage(characterStrength, 52);
     Func<Task> asyncCalculateCall = () => _calculator.CalculateAsync(characterStrength, CancellationToken.None);
 
-    calculateCall.Should().ThrowExactly<InvalidCharacterStrengthException>();
-    await asyncCalculateCall.Should().ThrowExactlyAsync<InvalidCharacterStrengthException>();
+    calculateCall.ShouldThrow<InvalidCharacterStrengthException>();
+    await asyncCalculateCall.ShouldThrowAsync<InvalidCharacterStrengthException>();
   }
 
   [Fact]
@@ -66,7 +65,7 @@ public class CalculateDamage
     Action calculateCall = () => _calculator.CalculateDamage(characterStrength, 5);
     Func<Task> asyncCalculateCall = () => _calculator.CalculateAsync(characterStrength, CancellationToken.None);
     
-    calculateCall.Should().NotThrow();
-    await asyncCalculateCall.Should().NotThrowAsync();
+    calculateCall.ShouldNotThrow();
+    await asyncCalculateCall.ShouldNotThrowAsync();
   }
 }

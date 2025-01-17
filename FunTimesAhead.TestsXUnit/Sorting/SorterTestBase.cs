@@ -1,5 +1,5 @@
-﻿using FluentAssertions;
-using FunTimesAhead.Sorting;
+﻿using FunTimesAhead.Sorting;
+using Shouldly;
 
 namespace FunTimesAhead.TestsXUnit.Sorting;
 
@@ -15,7 +15,7 @@ public abstract class SorterTestBase<TSorter> where TSorter : ISorter
 
     IEnumerable<int> sortedValues = Sorter.Sort(values);
 
-    sortedValues.Should().Equal(expectedSortedValues);
+    sortedValues.ShouldBe(expectedSortedValues);
   }
   
   [Fact]
@@ -25,7 +25,7 @@ public abstract class SorterTestBase<TSorter> where TSorter : ISorter
     
     IEnumerable<int> sortedValues = Sorter.Sort(noValues);
     
-    sortedValues.Should().BeEmpty();
+    sortedValues.ShouldBeEmpty();
   }
 
   [Fact]
@@ -36,7 +36,7 @@ public abstract class SorterTestBase<TSorter> where TSorter : ISorter
     
     IEnumerable<int> sortedValues = Sorter.Sort(values);
     
-    sortedValues.Should().Equal(expectedSortedValues);
+    sortedValues.ShouldBe(expectedSortedValues);
   }
 
   [Fact]
@@ -47,7 +47,7 @@ public abstract class SorterTestBase<TSorter> where TSorter : ISorter
     
     IEnumerable<int> sortedValues = Sorter.Sort(values);
     
-    sortedValues.Should().Equal(expectedSortedValues);
+    sortedValues.ShouldBe(expectedSortedValues);
   }
   
   [Fact]
@@ -58,6 +58,6 @@ public abstract class SorterTestBase<TSorter> where TSorter : ISorter
     
     IEnumerable<int> sortedValues = Sorter.Sort(values);
     
-    sortedValues.Should().Equal(expectedSortedValues);
+    sortedValues.ShouldBe(expectedSortedValues);
   }
 }

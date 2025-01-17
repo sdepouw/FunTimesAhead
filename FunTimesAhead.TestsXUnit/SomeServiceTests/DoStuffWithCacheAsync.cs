@@ -1,6 +1,6 @@
-using FluentAssertions;
 using Microsoft.Extensions.Caching.Hybrid;
 using NSubstitute;
+using Shouldly;
 
 namespace FunTimesAhead.TestsXUnit.SomeServiceTests;
 
@@ -22,6 +22,6 @@ public class DoStuffWithCacheAsync
 
     // Asserting the cache was called
     await _mockCache.AssertGetOrCreateAsyncCalledAsync("some-key", 1);
-    result.Should().Be(expectedValue);
+    result.ShouldBe(expectedValue);
   }
 }

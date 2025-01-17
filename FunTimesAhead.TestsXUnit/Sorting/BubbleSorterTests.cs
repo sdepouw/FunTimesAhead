@@ -1,6 +1,6 @@
-﻿using FluentAssertions;
-using FunTimesAhead.Sorting;
+﻿using FunTimesAhead.Sorting;
 using NSubstitute;
+using Shouldly;
 
 namespace FunTimesAhead.TestsXUnit.Sorting;
 
@@ -29,7 +29,7 @@ public class BubbleSorterTests : SorterTestBase<BubbleSorter>
     
     IEnumerable<int> sortedValues = Sorter.Sort(values);
     
-    sortedValues.Should().Equal(expectedSortedValues);
+    sortedValues.ShouldBe(expectedSortedValues);
     _mockSwapper.Received(expectedNumberOfSwaps).Swap(Arg.Any<List<int>>(), Arg.Any<int>(), Arg.Any<int>());
   }
 }
